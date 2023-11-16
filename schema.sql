@@ -26,3 +26,14 @@ CREATE TABLE "tb_token" (
     "token" TEXT,
     "is_expire" INTEGER NOT null default 0
 );
+drop table if exists tb_message;
+CREATE TABLE "tb_message" (
+    "msgId" INTEGER primary key autoincrement,
+    "fromEntity" INTEGER,
+    "fromId" INTEGER,
+    "toId" INTEGER,
+    "toEntity" INTEGER,
+    "messageType" INTEGER,
+    "content" TEXT,
+    "timestamp" INTEGER NOT null default 0
+);
