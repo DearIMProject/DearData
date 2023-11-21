@@ -9,6 +9,7 @@ CREATE TABLE "tb_user" (
     "vip_status" INTEGER,
     "vip_expired" INTEGER,
     "os" TEXT,
+    "icon" text,
     "register_time" INTEGER default 0
 );
 drop table if exists tb_security_code;
