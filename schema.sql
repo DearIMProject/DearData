@@ -30,11 +30,11 @@ CREATE TABLE "tb_token" (
 drop table if exists tb_message;
 CREATE TABLE "tb_message" (
     "msgId" INTEGER primary key autoincrement,
-    "fromEntity" INTEGER,
-    "fromId" INTEGER,
-    "toId" INTEGER,
-    "toEntity" INTEGER,
-    "messageType" INTEGER,
+    "from_entity" INTEGER,
+    "from_id" INTEGER,
+    "to_id" INTEGER,
+    "to_entity" INTEGER,
+    "message_type" INTEGER,
     "content" TEXT,
     "timestamp" INTEGER NOT null default 0
 );
