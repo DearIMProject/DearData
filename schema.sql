@@ -36,5 +36,13 @@ CREATE TABLE "tb_message" (
     "to_entity" INTEGER,
     "message_type" INTEGER,
     "content" TEXT,
+    "status" integer,
     "timestamp" INTEGER NOT null default 0
 );
+
+drop table if exists tb_user_address;
+create table "tb_user_address" (
+    'id' integer primary key autoincrement ,
+    "userId" integer,
+    "addressUserId" integer
+)
