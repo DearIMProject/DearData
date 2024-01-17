@@ -57,3 +57,4 @@ CREATE TABLE "tb_file" (
 
 
 
+SELECT msgId,from_id,from_entity,to_id,to_entity,content,message_type,timestamp,status FROM tb_message WHERE (timestamp = 1705389773);
