@@ -51,8 +51,10 @@ create table "tb_user_address" (
 drop table if exists tb_file;
 CREATE TABLE "tb_file" (
     "fileId" INTEGER primary key autoincrement,
-    "filePath" Text,
-    "file_md5" INTEGER
+    "file_path" Text,
+    "file_md5" INTEGER,
+    "width" INTEGER,
+    "height" INTEGER
 );
 
 
