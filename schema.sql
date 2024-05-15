@@ -11,7 +11,9 @@ CREATE TABLE "tb_user" (
     "vip_status" INTEGER,
     "vip_expired" INTEGER,
     "icon" text,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
+	"user_ids" text,
+	"group_ids" text,
     "register_time" INTEGER default 0
 );
 
@@ -22,11 +24,20 @@ CREATE TABLE "tb_message" (
     "from_id" INTEGER,
     "to_id" INTEGER,
     "to_entity" INTEGER,
+	"entity_type" INTEGER,
+	"entity_id" INTEGER,	
     "message_type" INTEGER,
     "content" TEXT,
     "status" integer,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
     "timestamp" INTEGER NOT null default 0
+);
+
+drop table if exists tb_msg_status;
+CREATE table "tb_msg_status" (
+	"status_id" INTEGER primary key autoincrement,
+	"msg_id" INTEGER NOT null,
+	"user_id" INTEGER NOT null
 );
 
 drop table if exists tb_security_code;
@@ -34,7 +45,7 @@ CREATE TABLE "tb_security_code" (
     "codeId" INTEGER PRIMARY KEY autoincrement,
     "uni_key" TEXT NOT NULL,
     "code" TEXT,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
     "expire_time" INTEGER default 0
 );
 
@@ -46,7 +57,7 @@ CREATE TABLE "tb_token" (
     "expire_time" INTEGER,
     "token" TEXT,
     "os" TEXT,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
     "is_expire" INTEGER NOT null default 0
 );
 
@@ -58,7 +69,7 @@ CREATE TABLE "tb_file" (
     "file_path" Text,
     "file_md5" INTEGER,
     "width" INTEGER,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
     "height" INTEGER
 );
 
@@ -69,6 +80,8 @@ CREATE TABLE "tb_group" (
     "name" Text,
     "user_ids" Text,
 	"own_user_id" INTEGER,
-	"deleted" INTEGER,
+	"deleted" INTEGER default 0,
 	"m_user_ids" Text
 );
+
+ALTER TABLE tb_user ADD group_ids INTEGER;
